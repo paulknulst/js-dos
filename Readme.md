@@ -1,7 +1,7 @@
 ## js-dos in docker
 Uses sample pac-man shareware for test.
 
-## add zip for dosbox
+## add another zip for dosbox
 
 1. download zip file and store within this directoy
 
