@@ -51,7 +51,7 @@ docker-compose -f docker-compose.dev.yml up -d --build
 
 ### 2. Play
 
-https://js-dos.PRIMARY_DOMAIN
+http://localhost:8000
 
 # Add/Change Games
 
