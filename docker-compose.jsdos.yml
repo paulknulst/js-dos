@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  web:
+    image: ${DOCKER_REGISTRY}/js-dos.${PRIMARY_DOMAIN}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - traefik-public
+    deploy:
+      placement:
+        constraints:
+          - node.labels.js-dos == true
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.jsdos-http.rule=Host(`js-dos.${PRIMARY_DOMAIN?Variable not set}`)
+        - traefik.http.routers.jsdos-http.entrypoints=http
+        - traefik.http.routers.jsdos-http.middlewares=https-redirect
+        - traefik.http.routers.jsdos-https.rule=Host(`js-dos.${PRIMARY_DOMAIN?Variable not set}`)
+        - traefik.http.routers.jsdos-https.entrypoints=https
+        - traefik.http.routers.jsdos-https.tls=true
+        - traefik.http.routers.jsdos-https.tls.certresolver=le
+        - traefik.http.services.jsdos.loadbalancer.server.port=8000
+networks:
+  traefik-public:
+    external: true
