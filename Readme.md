@@ -2,7 +2,7 @@
 
 This project includes a Dockerfile to create a website on which you can play pac-man (shareware).
 
-Live-Demo: https://js-dos.f1nalboss.de
+Live-Demo: https://js-dos.f1nalboss.de/pac
 
 There are two docker compose run configurations
 
