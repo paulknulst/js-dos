@@ -43,11 +43,15 @@ https://js-dos.PRIMARY_DOMAIN
 
 # Run Locally
 
-Use docker-compose to run locally:
+### 1. Use docker-compose to run locally:
 
 ```shell
 docker-compose -f docker-compose.dev.yml up -d --build
 ```
+
+### 2. Play
+
+https://js-dos.PRIMARY_DOMAIN
 
 # Add/Change Games
 
